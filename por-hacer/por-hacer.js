@@ -48,9 +48,14 @@ const crear = (descripcion) => { // funcion comando crear
 
 };
 
-const getListado = () => {
+const getListado = (completado = 'all') => {
 
     cargarDB();
+
+    // TAREA: Listar admite el parámetro completado=true, false, all
+    if (completado === 'true' || completado === 'false') {
+        listadoPorHacer = listadoPorHacer.filter(tarea => tarea.completado === (completado === 'true')) // callback que recorre el array entero
+    }
 
     return listadoPorHacer;
 
